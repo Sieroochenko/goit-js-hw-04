@@ -1,11 +1,13 @@
 function calcAverageCalories(days) {
-    if (days.length === 0) {
-        console.log("Error: The 'days' array is empty.");
-        return null; 
-    }
-    const totalCalories = days.reduce((acc, day) => acc + day.calories, 0);
-    const averageCalories = totalCalories / days.length;
-    return averageCalories;
+    if (!Array.isArray(days) || days.length === 0) {
+    return 0; 
+  }
+  let totalCalories = 0;
+  for (let i = 0; i < days.length; i++) {
+    totalCalories += days[i].calories;
+  }
+  const averageCalories = totalCalories / days.length;
+  return averageCalories;
 }
 
 
